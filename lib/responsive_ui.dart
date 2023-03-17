@@ -10,9 +10,9 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Image.asset(
-          'assets/images/youtube_logo.png',
-          height: 5.h,
+        title: Text(
+          "Homepage",
+          style: TextStyle(fontSize: 2.sp),
         ),
         actions: <Widget>[
           IconButton(
@@ -29,14 +29,10 @@ class HomePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            height: 20.h,
-            width: 100.w,
-            color: Colors.white,
-            child: Image.asset(
-              'assets/images/youtube_banner.jpg',
-              fit: BoxFit.cover,
-            ),
-          ),
+              height: 20.h,
+              width: 100.w,
+              color: Colors.white,
+              child: const Text("Container Text")),
           SizedBox(height: 2.h),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 3.w),
@@ -60,12 +56,14 @@ class HomePage extends StatelessWidget {
                       Container(
                         height: 100,
                         width: 30.w,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                              'assets/images/video${index + 1}.jpg',
+                        decoration: const BoxDecoration(
+                          border: Border.symmetric(
+                            vertical: BorderSide(
+                              width: 23,
                             ),
-                            fit: BoxFit.cover,
+                            horizontal: BorderSide(
+                              width: 23,
+                            ),
                           ),
                         ),
                       ),
@@ -83,7 +81,7 @@ class HomePage extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              'Channel Name - ${index + 1}K views - 1 day ago',
+                              'Channel Name - K views - 1 day ago',
                               style: TextStyle(fontSize: 3.5.sp),
                             ),
                             Row(
