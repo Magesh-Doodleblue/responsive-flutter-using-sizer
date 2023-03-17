@@ -12,7 +12,10 @@ class HomePage extends StatelessWidget {
         elevation: 0,
         title: Text(
           "Homepage",
-          style: TextStyle(fontSize: 2.sp),
+          style: TextStyle(
+            fontSize: 10.sp,
+            color: Colors.black,
+          ),
         ),
         actions: <Widget>[
           IconButton(
@@ -29,10 +32,17 @@ class HomePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-              height: 20.h,
-              width: 100.w,
-              color: Colors.white,
-              child: const Text("Container Text")),
+            height: 10.h,
+            width: 40.w,
+            color: Colors.white,
+            child: const Text(
+              "Container Text",
+              style: TextStyle(
+                fontSize: 30,
+                color: Colors.black,
+              ),
+            ),
+          ),
           SizedBox(height: 2.h),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 3.w),

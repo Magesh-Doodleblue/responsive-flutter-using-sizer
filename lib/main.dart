@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_ui_flutter/responsive_ui.dart';
 import 'package:sizer/sizer.dart';
+
+import 'respose.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
             brightness: Brightness.dark,
           ),
-          home: const HomePage(),
+          home: const MyHomeApp(),
         );
       },
     );
