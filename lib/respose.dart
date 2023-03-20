@@ -1,137 +1,147 @@
-import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
+// ignore_for_file: library_private_types_in_public_api
 
-class MyHomeApp extends StatelessWidget {
-  const MyHomeApp({super.key});
+import 'package:flutter/material.dart';
+
+import 'leave_taken.dart';
+import 'ongoing_project.dart';
+import 'profile_details_widget.dart';
+import 'upcoming_projects.dart';
+
+class MyDesktopUI extends StatefulWidget {
+  const MyDesktopUI({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return OrientationBuilder(
-          builder: (context, orientation) {
-            // Initialize SizerUtil with the default constructor
-            SizerUtil sizerUtil = SizerUtil();
-            return MaterialApp(
-              debugShowCheckedModeBanner: false,
-              title: 'My App',
-              theme: ThemeData(
-                primarySwatch: Colors.blue,
-              ),
-              home: MyHomePage(sizerUtil),
-            );
-          },
-        );
-      },
-    );
-  }
+  _MyDesktopUIState createState() => _MyDesktopUIState();
 }
 
-class MyHomePage extends StatelessWidget {
-  final SizerUtil sizerUtil;
-
-  const MyHomePage(this.sizerUtil, {super.key});
-
+class _MyDesktopUIState extends State<MyDesktopUI> {
+  bool _showMenu = false;
+  bool _showProfile = false;
+  bool _showUpComingProjects = false;
+  bool _showOnGoingProjects = false;
+  bool _showLeaveTaken = false;
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+    final isSmallScreen = screenSize.width < 600;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Home Page'),
+        title: const Text('OnBoarding Page'),
+        leading: isSmallScreen
+            ? IconButton(
+                icon: const Icon(Icons.menu),
+                onPressed: () {
+                  setState(() {
+                    _showMenu = !_showMenu;
+                  });
+                },
+              )
+            : null,
       ),
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Expanded(
-              flex: 1,
-              child: Container(
-                color: Colors.blue,
-                child: Center(
-                  child: Text(
-                    'Header',
-                    style: TextStyle(fontSize: 12.sp, color: Colors.white),
-                  ),
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 8,
+            Center(
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Expanded(
-                    flex: 3,
-                    child: Container(
-                      color: Colors.white,
-                      height: 45.h,
-                      child: Expanded(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Container(
-                              height: 10.h,
-                              color: Colors.blue,
-                              child: Center(
-                                child: Text(
-                                  'Box 1',
-                                  style: TextStyle(
-                                      fontSize: 7.sp, color: Colors.white),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              height: 15.h,
-                              color: Colors.red,
-                              child: Center(
-                                child: Text(
-                                  'Box 2',
-                                  style: TextStyle(
-                                      fontSize: 8.sp, color: Colors.white),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              height: 20.h,
-                              color: Colors.green,
-                              child: Center(
-                                child: Text(
-                                  'Box 3',
-                                  style: TextStyle(
-                                      fontSize: 9.sp, color: Colors.white),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                  if (!isSmallScreen || _showMenu)
+                    Expanded(
+                      flex: 2,
+                      child: Container(
+                        color: Colors.grey[200],
+                        height: screenSize.height,
+                        child: StreamBuilder<Object>(
+                            stream: null,
+                            builder: (context, snapshot) {
+                              return Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  const SizedBox(
+                                    height: 40,
+                                  ),
+                                  const Text(
+                                    'Menu',
+                                    style: TextStyle(fontSize: 20),
+                                  ),
+                                  const SizedBox(height: 20),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: TextButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          _showLeaveTaken = false;
+                                          _showOnGoingProjects = false;
+                                          _showProfile = true;
+                                          _showUpComingProjects = false;
+                                        });
+                                      },
+                                      child: const Text('Profile Details'),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: TextButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          _showLeaveTaken = false;
+                                          _showOnGoingProjects = false;
+                                          _showProfile = false;
+                                          _showUpComingProjects = true;
+                                        });
+                                      },
+                                      child: const Text('Upcoming Projects'),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: TextButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          _showLeaveTaken = false;
+                                          _showOnGoingProjects = true;
+                                          _showProfile = false;
+                                          _showUpComingProjects = false;
+                                        });
+                                      },
+                                      child: const Text('OnGoing Project'),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: TextButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          _showLeaveTaken = true;
+                                          _showOnGoingProjects = false;
+                                          _showProfile = false;
+                                          _showUpComingProjects = false;
+                                        });
+                                      },
+                                      child: const Text('Leave Taken'),
+                                    ),
+                                  ),
+                                ],
+                              );
+                            }),
                       ),
                     ),
-                  ),
-                  Expanded(
-                    flex: 5,
-                    child: Container(
-                      color: Colors.yellow,
-                      child: Center(
-                        child: Text(
-                          'Main Content',
-                          style:
-                              TextStyle(fontSize: 12.sp, color: Colors.black),
-                        ),
-                      ),
-                    ),
-                  ),
+                  if (_showProfile)
+                    profileDetailsWidget(
+                        screenSize: screenSize, isSmallScreen: isSmallScreen),
+                  if (_showLeaveTaken)
+                    LeaveTakenWidget(
+                        screenSize: screenSize, isSmallScreen: isSmallScreen),
+                  if (_showOnGoingProjects)
+                    OnGoingProjectWidget(
+                        screenSize: screenSize, isSmallScreen: isSmallScreen),
+                  if (_showUpComingProjects)
+                    UpComingProjectWidget(
+                        screenSize: screenSize, isSmallScreen: isSmallScreen),
                 ],
-              ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                color: Colors.blue,
-                child: Center(
-                  child: Text(
-                    'Footer',
-                    style: TextStyle(fontSize: 12.sp, color: Colors.white),
-                  ),
-                ),
               ),
             ),
           ],
