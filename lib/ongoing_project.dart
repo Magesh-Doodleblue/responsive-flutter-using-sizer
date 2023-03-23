@@ -18,7 +18,6 @@ class OnGoingProjectWidget extends StatelessWidget {
         padding: const EdgeInsets.all(18.0),
         child: Container(
           color: Colors.white,
-          height: screenSize.height,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -76,7 +75,7 @@ class OnGoingProjectWidget extends StatelessWidget {
                 height: 20,
               ),
               const Text(
-                "Projects On Going",
+                "Project On Going",
                 style: TextStyle(fontSize: 26),
               )
             ],
@@ -86,49 +85,3 @@ class OnGoingProjectWidget extends StatelessWidget {
     );
   }
 }
-
-              // ListView(children: <Widget>[
-              //   const Center(
-              //       child: Text(
-              //     'People-Chart',
-              //     style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-              //   )),
-              //   DataTable(
-              //     columns: const [
-              //       DataColumn(
-              //           label: Text('Dates',
-              //               style: TextStyle(
-              //                   fontSize: 18, fontWeight: FontWeight.bold))),
-              //       DataColumn(
-              //           label: Text('Reason',
-              //               style: TextStyle(
-              //                   fontSize: 18, fontWeight: FontWeight.bold))),
-              //       DataColumn(
-              //           label: Text('Status',
-              //               style: TextStyle(
-              //                   fontSize: 18, fontWeight: FontWeight.bold))),
-              //     ],
-              //     rows: const [
-              //       DataRow(cells: [
-              //         DataCell(Text('Jan 16')),
-              //         DataCell(Text('Sick')),
-              //         DataCell(Text('Approved')),
-              //       ]),
-              //       DataRow(cells: [
-              //         DataCell(Text('Mar 5')),
-              //         DataCell(Text('Sick')),
-              //         DataCell(Text('Approved')),
-              //       ]),
-              //       DataRow(cells: [
-              //         DataCell(Text('Apr 10')),
-              //         DataCell(Text('Native')),
-              //         DataCell(Text('Approved')),
-              //       ]),
-              //       DataRow(cells: [
-              //         DataCell(Text('15')),
-              //         DataCell(Text('Peter')),
-              //         DataCell(Text('Scientist')),
-              //       ]),
-              //     ],
-              //   ),
-              // ]),
