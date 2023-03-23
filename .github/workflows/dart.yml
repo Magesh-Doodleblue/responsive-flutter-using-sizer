@@ -16,6 +16,6 @@ jobs:
       with:
         dart-sdk: stable
     - name: Get dependencies
-      run: dart pub get
+      run: flutter pub get
     - name: Build and test
-      run: dart test
+      run: flutter test
