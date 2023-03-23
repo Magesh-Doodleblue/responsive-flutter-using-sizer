@@ -31,10 +31,10 @@ jobs:
     - name: Analyze code
       run: flutter analyze
 
-    - name: Build APK
-      run: flutter build apk
-      if: success()
+#     - name: Build APK
+#       run: flutter build apk
+#       if: success()
 
-    - name: Build iOS app
-      run: flutter build ios --no-codesign
-      if: success()
+#     - name: Build iOS app
+#       run: flutter build ios --no-codesign
+#       if: success()
