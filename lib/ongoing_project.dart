@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class OnGoingProjectWidget extends StatelessWidget {
   const OnGoingProjectWidget({
-    super.key,
+    Key? key,
     required this.screenSize,
     required this.isSmallScreen,
-  });
+  }) : super(key: key);
 
   final Size screenSize;
   final bool isSmallScreen;

@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 class peopleWidget extends StatelessWidget {
   const peopleWidget({
-    super.key,
+    Key? key,
     required List<String> imageUrls,
-  }) : _imageUrls = imageUrls;
+  })  : _imageUrls = imageUrls,
+        super(key: key);
 
   final List<String> _imageUrls;
 

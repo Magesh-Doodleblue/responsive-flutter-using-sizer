@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 class homeWidget extends StatelessWidget {
   const homeWidget({
-    super.key,
+    Key? key,
     required this.theme,
-  });
+  }) : super(key: key);
 
   final ThemeData theme;
 

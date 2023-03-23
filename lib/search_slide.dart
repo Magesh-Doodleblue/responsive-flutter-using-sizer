@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class searchWidget extends StatelessWidget {
   const searchWidget({
-    super.key,
+    Key? key,
     required this.theme,
-  });
+  }) : super(key: key);
 
   final ThemeData theme;
 
