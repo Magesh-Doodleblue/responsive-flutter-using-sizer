@@ -64,6 +64,8 @@ class SidebarXExampleApp extends StatelessWidget {
                   color: Colors.white,
                   size: 20,
                 ),
+
+                ///sample adding
               ),
               extendedTheme: const SidebarXTheme(
                 width: 200,
